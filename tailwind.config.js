@@ -4,8 +4,10 @@ module.exports = {
   theme: {
     fontFamily: {
       'Nicollast': ['Nicollast', 'sans serif'],
-      'Nunito': ['Nunito', 'sans serif'],
-      'Nunito-Bold': ['Nunito-Bold', 'sans serif']
+      'Montserrat': ['Montserrat', 'sans serif'],
+      'Montserrat-Bold': ['Montserrat-Bold', 'sans serif'],
+      'Montserrat-Light': ['Montserrat-Light', 'sans serif'],
+      'Montserrat-Thin': ['Montserrat-Thin', 'sans serif'],
     },
     extend: {},
   },

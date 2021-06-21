@@ -1,3 +1,30 @@
+@import url('../public/fonts/fontawesome/css/all.min.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Nicollast';
+    src: url("../public/fonts/Nicollast/Nicollast.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url("../public/fonts/Montserrat/Montserrat-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Montserrat-Light';
+    src: url("../public/fonts/Montserrat/Montserrat-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Montserrat-Thin';
+    src: url("../public/fonts/Montserrat/Montserrat-Thin.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url("../public/fonts/Montserrat/Montserrat-Bold.otf") format("opentype");
+}
