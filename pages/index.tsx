@@ -4,15 +4,30 @@ import {Navigation} from "../components/Navigation";
 
 // Images
 import Avatar from '../public/images/avatar.jpg';
-import Youtube from '../public/images/projects/Youtube Channel.jpg';
+import Youtube from '../public/images/projects/Youtube Channel.png';
+import Code from '../public/images/projects/code.jpg';
+import Card_Profile from '../public/images/projects/card_profile.jpg';
+import Card_Columns from '../public/images/projects/card_columns.jpg';
 import Doni_Spot from '../public/images/projects/Doni Spot.png';
+import Old_Doni_Spot from '../public/images/projects/Old Doni Spot.png';
+import RentURide from '../public/images/projects/RentURide.png';
 
 import { ChevronDoubleDownIcon } from "@heroicons/react/solid";
 import {Card} from "../components/Card";
 
 import ICard from '../interfaces/ICard';
+import React, {useState} from "react";
+import IEmail from "../interfaces/IEmail";
+
 
 export default function Home() {
+
+    const [emailData, setEmailData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
 
     const personalProjects: ICard[] = [
         {
@@ -30,8 +45,81 @@ export default function Home() {
     ];
 
     const sampleProjects: ICard[] = [
+        {
+            name: "RentURide Web",
+            background: RentURide,
+            url: "https://bike-rent-app.vercel.app/",
+            description: "Sample project of a bike rent service agency.",
+            technologies: ['React', 'Tailwindcss', 'Firebase']
+        },
+        {
+            name: "Stormcell E-commerce",
+            background: Code,
+            url: "https://github.com/donihernandez/stormcell",
+            description: "Sample project in progress. The ultimate goal is to make an E-commerce.",
+            technologies: ['PHP', 'Laravel', 'Vuejs', 'Jetstream']
+        },
+        {
+            name: "Old Doni Spot Web",
+            background: Old_Doni_Spot,
+            url: "https://donispot.netlify.app/",
+            description: "Is not currently functional. But was the previous version of my personal website.",
+            technologies: ['Nuxt', 'Vuetify', 'Firebase']
+        },
+        {
+            name: "Todo App Api",
+            background: Code,
+            url: "https://github.com/donihernandez/todo-app-api",
+            description: "Sample project in progress. The ultimate goal is to make a Trello clone.",
+            technologies: ['PHP', 'Laravel']
+        },
+        {
+            name: "E2E Puppeter Testing",
+            background: Code,
+            url: "https://github.com/donihernandez/e2e-puppeter-testing",
+            description: "Sample testing project.",
+            technologies: ['Puppeteer', 'Mocha', 'Chai']
 
+        },
+        {
+            name: "Profile Card Component",
+            background: Card_Profile,
+            url: "https://doni-profile-card-component.netlify.app/",
+            description: "FrontendMentor Challenge. Profile Card Component using HTML and CSS.",
+            technologies: ['HTML', 'CSS']
+
+        },
+        {
+            name: "3 Column Preview Card",
+            background: Card_Columns,
+            url: "https://card-components.netlify.app/",
+            description: "FrontendMentor Challenge. 3 Column Preview Card Component using HTML and CSS.",
+            technologies: ['HTML', 'CSS']
+        }
     ];
+
+    const sendMail = async (data: IEmail) => {
+
+        try {
+            await fetch("/api/contact", {
+                "method": "POST",
+                "headers": { "content-type": "application/json" },
+                "body": JSON.stringify(data)
+            })
+
+            //if sucess do whatever you like, i.e toast notification
+            setTimeout(() => "", 2000);
+        } catch (error) {
+            // toast error message. whatever you wish
+        }
+    }
+
+    const updateField = (e: HTMLInputElement) => {
+        setEmailData({
+            ...emailData,
+            [e.name]: e.value
+        });
+    };
 
     return (
         <div>
@@ -44,18 +132,18 @@ export default function Home() {
             <main>
                 <Navigation />
 
-                <section id="about" className="md:h-screen h-full mt-14 flex flex-col md:flex-row bg-gray-900 justify-center items-center text-white p-10">
+                <section id="about" className="h-screen mt-14 flex flex-col md:flex-row bg-gray-900 justify-center items-center text-white p-10">
                     <div className="md:w-1/2 md:pl-14 md:pr-4 text-center md:text-justify">
                         <h1 className="font-Nicollast font-bold text-7xl md:text-9xl" style={{ textShadow: "1px 2px 3px rgba(0,0,0,0.5)" }}>Hi, I´m <span className="text-yellow-400">Doni!</span></h1>
                         <p className="font-Montserrat-Thin py-5 mb-10 text-2xl">
                             {/* eslint-disable-next-line react/no-unescaped-entities */}
                             I'm a <span className="font-Montserrat-Bold text-yellow-500">software engineer</span> specialized in both <span className="font-Montserrat-Bold text-yellow-500">front-end</span> and <span className="font-Montserrat-Bold text-yellow-500">back-end</span>. I'm a passionate about web development and I really love Javascript. I live in Cuba and I'm currently looking for work outside my country.
                         </p>
-                        <a href="#" className="bg-yellow-500 font-Montserrat-Bold text-white p-4 rounded-md hover:bg-gray-900 border-gray-900 hover:border-yellow-500 border transition-all duration-150 delay-150">
+                        <a href="https://donihernandez.s3.amazonaws.com/Adonai's+Resume.pdf" target="_blank" className="bg-yellow-500 font-Montserrat-Bold text-white p-4 rounded-md hover:bg-gray-900 border-gray-900 hover:border-yellow-500 border transition-all duration-150 delay-150" rel="noreferrer">
                             Download cv
                         </a>
                     </div>
-                    <div className="md:w-1/2 mt-16 flex justify-center items-center">
+                    <div className="md:w-1/2 mt-16 md:flex justify-center items-center hidden">
                         <div>
                             <Image src={Avatar} className="rounded-full" width={500} height={500} alt="Doni Hernández"/>
                         </div>
@@ -150,9 +238,11 @@ export default function Home() {
                         <div className="border-b md:w-1/2 md:border-r md:border-b-0 border-gray-400 p-8">
                             <h3 className="font-Montserrat-Bold text-3xl">Sample Projects</h3>
                             <div className="grid md:grid-cols-2 grid-cols-1 gap-6 mt-14">
-                                <Card name="Doni Spot" background={Youtube} url="https://youtube.com/c/donispot" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit." />
-                                <Card name="Doni Spot" background={Youtube} url="https://youtube.com/c/donispot" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit." />
-                                <Card name="Doni Spot" background={Youtube} url="https://youtube.com/c/donispot" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit." />
+                                {
+                                    sampleProjects.map((project, index) => {
+                                        return <Card key={index} name={project.name} background={project.background} url={project.url} description={project.description} technologies={project.technologies} />
+                                    })
+                                }
                             </div>
                         </div>
                         <div className="md:w-1/2 p-8">
@@ -160,7 +250,7 @@ export default function Home() {
                             <div className="grid md:grid-cols-2 grid-cols-1 gap-6 mt-14">
                                 {
                                     personalProjects.map((project, index) => {
-                                        return <Card key={index} name={project.name} background={project.background} url={project.url} description={project.description} />
+                                        return <Card key={index} name={project.name} background={project.background} url={project.url} description={project.description} technologies={project.technologies} />
                                     })
                                 }
                             </div>
@@ -173,20 +263,47 @@ export default function Home() {
 
                 </section>
 
-                <section id="contact" className="md:h-screen text-center flex flex-col justify-center items-center md:p-32 p-16">
-                    <h2 className="text-7xl md:text-9xl font-bold font-Nicollast">Contact <span className="text-yellow-400">Me!</span></h2>
-                    <form className="flex flex-col justify-center items-center w-full space-y-5">
-                        <input className="border border-gray-300 rounded-lg p-4 w-1/4" type="text" placeholder="your name is..." />
-                        <input className="border border-gray-300 rounded-lg p-4 w-1/4" type="email" placeholder="your email is..." />
-                        <textarea className="border border-gray-300 rounded-lg p-4 w-1/4" placeholder="message"/>
-                        <button className="md:w-1/4 bg-yellow-500 font-Montserrat-Bold text-white p-2 rounded-md hover:bg-white border-white hover:border-yellow-400 hover:text-gray-900 border transition-all duration-150 delay-150" type="submit">send</button>
+                <section id="contact" className="h-screen text-center flex flex-col justify-center items-center md:p-32 pb-16 p-16">
+                    <h2 className="text-7xl md:text-9xl font-bold font-Nicollast mb-8">Contact <span className="text-yellow-400">Me!</span></h2>
+                    <form className="flex flex-col justify-center items-center w-full space-y-5" onSubmit={() => sendMail(emailData)}>
+                        <input className="border border-gray-300 rounded-lg p-4 md:w-1/4 w-full" type="text" name="name" value={emailData.name} onChange={(e) => updateField} placeholder="your name is..." />
+                        <input className="border border-gray-300 rounded-lg p-4 md:w-1/4 w-full" type="email" name="email" value={emailData.email} onChange={(e) => updateField} placeholder="your email is..." />
+                        <input className="border border-gray-300 rounded-lg p-4 md:w-1/4 w-full" type="text" name="subject" value={emailData.subject} onChange={(e) => updateField} placeholder="subject..." />
+                        <textarea className="border border-gray-300 rounded-lg p-4 md:w-1/4 w-full" name="message" value={emailData.message} onChange={(e) => updateField} placeholder="message"/>
+                        <button onClick={() => sendMail(emailData)} className="md:w-1/4 w-full bg-yellow-500 font-Montserrat-Bold text-white p-2 rounded-md hover:bg-white border-white hover:border-yellow-400 hover:text-gray-900 border transition-all duration-150 delay-150" type="submit">send</button>
                     </form>
                 </section>
 
             </main>
 
-            <footer>
-                <p>{ Date.now() }</p>
+            <footer className="bg-gray-800 flex md:flex-row flex-col justify-center items-center text-white pt-6 pb-6">
+                <div className="md:w-1/2 flex justify-center items-center border-b pb-4 md:pb-0 md:border-r md:border-b-0 border-gray-400">
+                    <span>Doni Domínguez Hernández &copy; { new Date().getFullYear() }</span>
+                </div>
+                <div className="md:w-1/2 mt-4 md:mt-0 flex justify-center items-center">
+                    <ul className="flex space-x-6 items-center">
+                        <li>
+                            <a href="https://github.com/donihernandez" target="_blank" rel="noreferrer">
+                                <i className="fab fa-github"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/adonai-dominguez-hernandez/" target="_blank" rel="noreferrer">
+                                <i className="fab fa-linkedin-in text-blue-600"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://youtube.com/c/donispot" target="_blank" rel="noreferrer">
+                                <i className="fab fa-youtube text-red-500"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/donidhernandez" target="_blank" rel="noreferrer">
+                                <i className="fab fa-twitter text-blue-400"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </footer>
         </div>
     )

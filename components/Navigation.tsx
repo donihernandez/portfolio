@@ -86,18 +86,23 @@ export const Navigation = () => {
                                 </a>
                             </li>
                             <li>
+                                <a href="https://github.com/donihernandez" target="_blank" rel="noreferrer">
+                                    <i className="fab fa-gitlab" style={{ color: '#FC6D27' }}/>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="https://www.linkedin.com/in/adonai-dominguez-hernandez/" target="_blank" rel="noreferrer">
-                                    <i className="fab fa-linkedin-in text-blue-600"/>
+                                    <i className="fab fa-linkedin-in" style={{ color: '#2867B2' }}/>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://youtube.com/c/donispot" target="_blank" rel="noreferrer">
-                                    <i className="fab fa-youtube text-red-500"/>
+                                    <i className="fab fa-youtube" style={{ color: '#FF0000' }} />
                                 </a>
                             </li>
                             <li>
                                 <a href="https://twitter.com/donidhernandez" target="_blank" rel="noreferrer">
-                                    <i className="fab fa-twitter text-blue-400"/>
+                                    <i className="fab fa-twitter" style={{ color: '#1DA1F2' }}/>
                                 </a>
                             </li>
                         </ul>
@@ -113,18 +118,23 @@ export const Navigation = () => {
                         </a>
                     </li>
                     <li>
+                        <a href="https://github.com/donihernandez" target="_blank" rel="noreferrer">
+                            <i className="fab fa-gitlab" style={{color: 'FC6D27'}}/>
+                        </a>
+                    </li>
+                    <li>
                         <a href="https://www.linkedin.com/in/adonai-dominguez-hernandez/" target="_blank" rel="noreferrer">
-                            <i className="fab fa-linkedin-in text-blue-600"/>
+                            <i className="fab fa-linkedin-in" style={{ color: '#2867B2' }}/>
                         </a>
                     </li>
                     <li>
                         <a href="https://youtube.com/c/donispot" target="_blank" rel="noreferrer">
-                            <i className="fab fa-youtube text-red-500"/>
+                            <i className="fab fa-youtube" style={{ color: '#FF0000' }} />
                         </a>
                     </li>
                     <li>
                         <a href="https://twitter.com/donidhernandez" target="_blank" rel="noreferrer">
-                            <i className="fab fa-twitter text-blue-400"/>
+                            <i className="fab fa-twitter" style={{ color: '#1DA1F2' }}/>
                         </a>
                     </li>
                 </ul>
