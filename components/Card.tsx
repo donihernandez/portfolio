@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import ICard from '../interfaces/ICard';
 
 export const Card = (props: ICard) => {
@@ -6,7 +5,8 @@ export const Card = (props: ICard) => {
     return (
         <article className="flex flex-col bg-white text-gray-900 rounded-t-lg rounded-b-lg">
             <div>
-                <Image className="object-cover rounded-t-md" src={props.background} alt={props.name} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="object-cover rounded-t-md" src={props.background} alt={props.name} />
             </div>
 
             <div className="md:p-6 p-4 flex flex-col justify-center items-center md:space-y-4 space-y-2">
