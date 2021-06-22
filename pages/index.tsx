@@ -152,9 +152,9 @@ export default function Home() {
                         </a>
                     </div>
                     <div className="md:w-1/2 mt-16 md:flex justify-center items-center hidden">
-                        <div>
+                        <div className="rounded-full">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="https://donihernandez.s3.amazonaws.com/images/avatar.jpg" className="rounded-full" width={500} height={500} alt="Doni Hernández"/>
+                            <img src="https://donihernandez.s3.amazonaws.com/images/avatar.jpg" width={500} height={500} alt="Doni Hernández"/>
                         </div>
                     </div>
                 </section>
