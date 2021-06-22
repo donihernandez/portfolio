@@ -19,6 +19,9 @@ import ICard from '../interfaces/ICard';
 import React, {useState} from "react";
 import IEmail from "../interfaces/IEmail";
 
+import Swal from 'sweetalert2';
+import jump from 'jump.js'
+
 
 export default function Home() {
 
@@ -108,9 +111,20 @@ export default function Home() {
             })
 
             //if sucess do whatever you like, i.e toast notification
-            setTimeout(() => "", 2000);
+            setTimeout(() =>
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your message has been sended',
+                    showConfirmButton: false,
+                    timer: 1500
+                }), 2000);
         } catch (error) {
-            // toast error message. whatever you wish
+            await Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!'
+            })
         }
     }
 
@@ -120,6 +134,10 @@ export default function Home() {
             [e.name]: e.value
         });
     };
+
+    const jumpTo = (target: String) => {
+        jump(`.${target}`)
+    }
 
     return (
         <div>
@@ -132,7 +150,7 @@ export default function Home() {
             <main>
                 <Navigation />
 
-                <section id="about" className="h-screen mt-14 flex flex-col md:flex-row bg-gray-900 justify-center items-center text-white p-10">
+                <section id="about" className="about h-screen mt-14 flex flex-col md:flex-row bg-gray-900 justify-center items-center text-white p-10">
                     <div className="md:w-1/2 md:pl-14 md:pr-4 text-center md:text-justify">
                         <h1 className="font-Nicollast font-bold text-7xl md:text-9xl" style={{ textShadow: "1px 2px 3px rgba(0,0,0,0.5)" }}>Hi, I´m <span className="text-yellow-400">Doni!</span></h1>
                         <p className="font-Montserrat-Thin py-5 mb-10 text-2xl">
@@ -150,7 +168,7 @@ export default function Home() {
                     </div>
                 </section>
 
-                <section id="skills" className="md:h-screen text-center flex flex-col justify-center items-center md:p-32 p-16">
+                <section id="skills" className="skills md:h-screen text-center flex flex-col justify-center items-center md:p-32 p-16">
                     <h2 className="text-7xl md:text-9xl font-bold font-Nicollast">My <span className="text-yellow-400">Skills</span></h2>
 
                     <div className="flex md:flex-row flex-col md:justify-between justify-center items-center h-full mt-10 md:mt-0 md:space-x-6 md:space-y-0 space-y-4">
@@ -224,14 +242,14 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <a href="#projects" className="mt-6">
+                    <a href="#" onClick={() => jumpTo('projects')} className="mt-6">
                         <ChevronDoubleDownIcon className="md:h-14 md:w-14 h-10 w-10 hover:text-yellow-400 cursor-pointer animate-bounce transition-all duration-150 delay-150"/>
                     </a>
 
 
                 </section>
 
-                <section id="projects" className="md:h-full text-center bg-gray-900 text-white md:pt-32 md:pb-16 p-16">
+                <section id="projects" className="projects md:h-full text-center bg-gray-900 text-white md:pt-32 md:pb-16 p-16">
                     <h2 className="text-7xl md:text-9xl font-bold font-Nicollast">My <span className="text-yellow-400">Projects</span></h2>
 
                     <div className="flex flex-col md:flex-row mt-10">
@@ -257,13 +275,13 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <a href="#contact" className="mt-14 flex justify-center items-center">
+                    <a href="#" onClick={() => jumpTo('contact')} className="mt-14 flex justify-center items-center">
                         <ChevronDoubleDownIcon className="md:h-14 md:w-14 h-10 w-10 hover:text-yellow-400 cursor-pointer animate-bounce transition-all duration-150 delay-150"/>
                     </a>
 
                 </section>
 
-                <section id="contact" className="h-screen text-center flex flex-col justify-center items-center md:p-32 pb-16 p-16">
+                <section id="contact" className="contact h-screen text-center flex flex-col justify-center items-center md:p-32 pb-16 p-16">
                     <h2 className="text-7xl md:text-9xl font-bold font-Nicollast mb-8">Contact <span className="text-yellow-400">Me!</span></h2>
                     <form className="flex flex-col justify-center items-center w-full space-y-5" onSubmit={() => sendMail(emailData)}>
                         <input className="border border-gray-300 rounded-lg p-4 md:w-1/4 w-full" type="text" name="name" value={emailData.name} onChange={(e) => updateField} placeholder="your name is..." />

@@ -1,18 +1,26 @@
 import React, {useRef} from "react";
 import {MenuAlt1Icon, XIcon} from "@heroicons/react/solid";
+import jump from 'jump.js'
 
 export const Navigation = () => {
 
     const navMenu = useRef<HTMLDivElement>(null);
 
-    const hideMenu = () => {
+    const hideMenu = (target?: String) => {
         if (!navMenu.current) throw Error("navMenu is not assigned");
         navMenu.current.style.left = '-100%';
+        if (target !== '') {
+            jump(`.${target}`)
+        }
     }
 
     const showMenu = () => {
         if (!navMenu.current) throw Error("navMenu is not assigned");
         navMenu.current.style.left = '0';
+    }
+
+    const jumpTo = (target: String) => {
+        jump(`.${target}`)
     }
 
     return (
@@ -28,22 +36,22 @@ export const Navigation = () => {
                 <div>
                     <ul className="flex translate-y-0 justify-center space-x-6 items-center">
                         <li className="hover:text-yellow-500 transition-all ease-in duration-150">
-                            <a href="#about">
+                            <a href="#" onClick={() => jumpTo('about')}>
                                 about
                             </a>
                         </li>
                         <li className="hover:text-yellow-500 transition-all ease-in duration-150">
-                            <a href="#skills">
+                            <a href="#" onClick={() => jumpTo('skills')}>
                                 skills
                             </a>
                         </li>
                         <li className="hover:text-yellow-500 transition-all ease-in duration-150">
-                            <a href="#projects">
+                            <a href="#" onClick={() => jumpTo('projects')}>
                                 projects
                             </a>
                         </li>
                         <li className="hover:text-yellow-500 transition-all ease-in duration-150">
-                            <a href="#contact">
+                            <a href="#" onClick={() => jumpTo('contact')}>
                                 contact
                             </a>
                         </li>
@@ -52,27 +60,27 @@ export const Navigation = () => {
             </nav>
 
             <nav className="md:hidden fixed -left-full top-0 bg-gray-900 w-full h-screen z-10 pt-6 pb-6 transition-all duration-500" ref={navMenu}>
-                <XIcon className="h-10 w-10 absolute right-8 cursor-pointer hover:text-yellow-500" onClick={hideMenu} />
+                <XIcon className="h-10 w-10 absolute right-8 cursor-pointer hover:text-yellow-500" onClick={() => hideMenu('')} />
 
                 <div className="flex flex-col justify-center text-2xl font-bold text-center items-center h-full">
                     <ul className="space-y-10">
-                        <li onClick={hideMenu} className="hover:text-yellow-500 transition-all ease-in duration-150">
-                            <a href="#about" >
+                        <li className="hover:text-yellow-500 transition-all ease-in duration-150">
+                            <a href="#" onClick={() => hideMenu('about')}>
                                 about
                             </a>
                         </li>
-                        <li onClick={hideMenu} className="hover:text-yellow-500 transition-all ease-in duration-150">
-                            <a href="#skills">
+                        <li className="hover:text-yellow-500 transition-all ease-in duration-150">
+                            <a href="#" onClick={() => hideMenu('skills')}>
                                 skills
                             </a>
                         </li>
-                        <li onClick={hideMenu} className="hover:text-yellow-500 transition-all ease-in duration-150">
-                            <a href="#projects">
+                        <li className="hover:text-yellow-500 transition-all ease-in duration-150">
+                            <a href="#" onClick={() => hideMenu('projects')}>
                                 projects
                             </a>
                         </li>
-                        <li onClick={hideMenu} className="hover:text-yellow-500 transition-all ease-in duration-150">
-                            <a href="#contact">
+                        <li className="hover:text-yellow-500 transition-all ease-in duration-150">
+                            <a href="#" onClick={() => hideMenu('contact')}>
                                 contact
                             </a>
                         </li>
@@ -86,7 +94,7 @@ export const Navigation = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/donihernandez" target="_blank" rel="noreferrer">
+                                <a href="https://gitlab.com/donihernandez003" target="_blank" rel="noreferrer">
                                     <i className="fab fa-gitlab" style={{ color: '#FC6D27' }}/>
                                 </a>
                             </li>
@@ -118,8 +126,8 @@ export const Navigation = () => {
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/donihernandez" target="_blank" rel="noreferrer">
-                            <i className="fab fa-gitlab" style={{color: 'FC6D27'}}/>
+                        <a href="https://gitlab.com/donihernandez003" target="_blank" rel="noreferrer">
+                            <i className="fab fa-gitlab" style={{color: '#FC6D27'}}/>
                         </a>
                     </li>
                     <li>
