@@ -1,4 +1,5 @@
-@import url('../public/fonts/fontawesome/css/all.min.css');
+@import url('../public/fonts/fontawesome/css/brands.min.css');
+@import url('../public/fonts/fontawesome/css/fontawesome.min.css');
 
 @tailwind base;
 @tailwind components;

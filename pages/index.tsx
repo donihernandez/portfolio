@@ -300,7 +300,7 @@ export default function Home() {
                 </div>
                 <div className="md:w-1/2 mt-4 md:mt-0 flex justify-center items-center">
                     <ul className="flex space-x-6 items-center">
-                        <li>
+                      {/*  <li>
                             <a href="https://github.com/donihernandez" target="_blank" rel="noreferrer">
                                 <i className="fab fa-github"/>
                             </a>
@@ -319,7 +319,7 @@ export default function Home() {
                             <a href="https://twitter.com/donidhernandez" target="_blank" rel="noreferrer">
                                 <i className="fab fa-twitter text-blue-400"/>
                             </a>
-                        </li>
+                        </li>*/}
                     </ul>
                 </div>
             </footer>
