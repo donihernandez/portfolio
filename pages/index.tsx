@@ -2,16 +2,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import {Navigation} from "../components/Navigation";
 
-// Images
-import Avatar from '../public/images/avatar.jpg';
-import Youtube from '../public/images/projects/Youtube Channel.png';
-import Code from '../public/images/projects/code.jpg';
-import Card_Profile from '../public/images/projects/card_profile.jpg';
-import Card_Columns from '../public/images/projects/card_columns.jpg';
-import Doni_Spot from '../public/images/projects/Doni Spot.png';
-import Old_Doni_Spot from '../public/images/projects/Old Doni Spot.png';
-import RentURide from '../public/images/projects/RentURide.png';
-
 import { ChevronDoubleDownIcon } from "@heroicons/react/solid";
 import {Card} from "../components/Card";
 
@@ -21,7 +11,6 @@ import IEmail from "../interfaces/IEmail";
 
 import Swal from 'sweetalert2';
 import jump from 'jump.js'
-
 
 export default function Home() {
 
@@ -35,13 +24,13 @@ export default function Home() {
     const personalProjects: ICard[] = [
         {
             name: "Doni Spot (Youtube)",
-            background: Youtube,
+            background: "https://donihernandez.s3.amazonaws.com/images/projects/Youtube+Channel.png",
             url: "https://youtube.com/c/donispot",
             description: "My spanish web development channel!"
         },
         {
             name: "Doni Spot (Web)",
-            background: Doni_Spot,
+            background: "https://donihernandez.s3.amazonaws.com/images/projects/Doni+Spot.png",
             url: "https://donispot.com",
             description: "Online courses marketplace in Spanish!"
         },
@@ -50,35 +39,35 @@ export default function Home() {
     const sampleProjects: ICard[] = [
         {
             name: "RentURide Web",
-            background: RentURide,
+            background: "https://donihernandez.s3.amazonaws.com/images/projects/RentURide.png",
             url: "https://bike-rent-app.vercel.app/",
             description: "Sample project of a bike rent service agency.",
             technologies: ['React', 'Tailwindcss', 'Firebase']
         },
         {
             name: "Stormcell E-commerce",
-            background: Code,
+            background: "https://donihernandez.s3.amazonaws.com/images/projects/code.jpg",
             url: "https://github.com/donihernandez/stormcell",
             description: "Sample project in progress. The ultimate goal is to make an E-commerce.",
             technologies: ['PHP', 'Laravel', 'Vuejs', 'Jetstream']
         },
         {
             name: "Old Doni Spot Web",
-            background: Old_Doni_Spot,
+            background: "https://donihernandez.s3.amazonaws.com/images/projects/Old+Doni+Spot.png",
             url: "https://donispot.netlify.app/",
             description: "Is not currently functional. But was the previous version of my personal website.",
             technologies: ['Nuxt', 'Vuetify', 'Firebase']
         },
         {
             name: "Todo App Api",
-            background: Code,
+            background: "https://donihernandez.s3.amazonaws.com/images/projects/code.jpg",
             url: "https://github.com/donihernandez/todo-app-api",
             description: "Sample project in progress. The ultimate goal is to make a Trello clone.",
             technologies: ['PHP', 'Laravel']
         },
         {
             name: "E2E Puppeter Testing",
-            background: Code,
+            background: "https://donihernandez.s3.amazonaws.com/images/projects/code.jpg",
             url: "https://github.com/donihernandez/e2e-puppeter-testing",
             description: "Sample testing project.",
             technologies: ['Puppeteer', 'Mocha', 'Chai']
@@ -86,7 +75,7 @@ export default function Home() {
         },
         {
             name: "Profile Card Component",
-            background: Card_Profile,
+            background: "https://donihernandez.s3.amazonaws.com/images/projects/card_profile.jpg",
             url: "https://doni-profile-card-component.netlify.app/",
             description: "FrontendMentor Challenge. Profile Card Component using HTML and CSS.",
             technologies: ['HTML', 'CSS']
@@ -94,7 +83,7 @@ export default function Home() {
         },
         {
             name: "3 Column Preview Card",
-            background: Card_Columns,
+            background: "https://donihernandez.s3.amazonaws.com/images/projects/card_columns.jpg",
             url: "https://card-components.netlify.app/",
             description: "FrontendMentor Challenge. 3 Column Preview Card Component using HTML and CSS.",
             technologies: ['HTML', 'CSS']
@@ -139,6 +128,7 @@ export default function Home() {
         jump(`.${target}`)
     }
 
+    // @ts-ignore
     return (
         <div>
             <Head>
@@ -163,7 +153,7 @@ export default function Home() {
                     </div>
                     <div className="md:w-1/2 mt-16 md:flex justify-center items-center hidden">
                         <div>
-                            <Image src={Avatar} className="rounded-full" width={500} height={500} alt="Doni Hernández"/>
+                            <Image src="https://donihernandez.s3.amazonaws.com/images/avatar.jpg" className="rounded-full" width={500} height={500} alt="Doni Hernández"/>
                         </div>
                     </div>
                 </section>
@@ -300,7 +290,7 @@ export default function Home() {
                 </div>
                 <div className="md:w-1/2 mt-4 md:mt-0 flex justify-center items-center">
                     <ul className="flex space-x-6 items-center">
-                      {/*  <li>
+                        <li>
                             <a href="https://github.com/donihernandez" target="_blank" rel="noreferrer">
                                 <i className="fab fa-github"/>
                             </a>
@@ -319,7 +309,7 @@ export default function Home() {
                             <a href="https://twitter.com/donidhernandez" target="_blank" rel="noreferrer">
                                 <i className="fab fa-twitter text-blue-400"/>
                             </a>
-                        </li>*/}
+                        </li>
                     </ul>
                 </div>
             </footer>
