@@ -12,6 +12,17 @@ import IEmail from "../interfaces/IEmail";
 import Swal from 'sweetalert2';
 import jump from 'jump.js'
 
+
+// Images
+import Avatar from '../public/images/avatar.jpg';
+import Code from '../public/images/code.jpg';
+import Old_Doni_Spot from '../public/images/Old Doni Spot.png';
+import Card_Columns from '../public/images/card_columns.jpg';
+import Card_Profile from '../public/images/card_profile.jpg';
+import RentURide from '../public/images/RentURide.png';
+import Doni_Spot from '../public/images/Doni Spot.png';
+import Youtube from '../public/images/Youtube Channel.png';
+
 export default function Home() {
 
     const [emailData, setEmailData] = useState({
@@ -24,13 +35,13 @@ export default function Home() {
     const personalProjects: ICard[] = [
         {
             name: "Doni Spot (Youtube)",
-            background: "https://donihernandez.s3.amazonaws.com/images/projects/Youtube+Channel.png",
+            background: Youtube,
             url: "https://youtube.com/c/donispot",
             description: "My spanish web development channel!"
         },
         {
             name: "Doni Spot (Web)",
-            background: "https://donihernandez.s3.amazonaws.com/images/projects/Doni+Spot.png",
+            background: Doni_Spot,
             url: "https://donispot.com",
             description: "Online courses marketplace in Spanish!"
         },
@@ -39,35 +50,35 @@ export default function Home() {
     const sampleProjects: ICard[] = [
         {
             name: "RentURide Web",
-            background: "https://donihernandez.s3.amazonaws.com/images/projects/RentURide.png",
+            background: RentURide,
             url: "https://bike-rent-app.vercel.app/",
             description: "Sample project of a bike rent service agency.",
             technologies: ['React', 'Tailwindcss', 'Firebase']
         },
         {
             name: "Stormcell E-commerce",
-            background: "https://donihernandez.s3.amazonaws.com/images/projects/code.jpg",
+            background: Code,
             url: "https://github.com/donihernandez/stormcell",
             description: "Sample project in progress. The ultimate goal is to make an E-commerce.",
             technologies: ['PHP', 'Laravel', 'Vuejs', 'Jetstream']
         },
         {
             name: "Old Doni Spot Web",
-            background: "https://donihernandez.s3.amazonaws.com/images/projects/Old+Doni+Spot.png",
+            background: Old_Doni_Spot,
             url: "https://donispot.netlify.app/",
             description: "Is not currently functional. But was the previous version of my personal website.",
             technologies: ['Nuxt', 'Vuetify', 'Firebase']
         },
         {
             name: "Todo App Api",
-            background: "https://donihernandez.s3.amazonaws.com/images/projects/code.jpg",
+            background: Code,
             url: "https://github.com/donihernandez/todo-app-api",
             description: "Sample project in progress. The ultimate goal is to make a Trello clone.",
             technologies: ['PHP', 'Laravel']
         },
         {
             name: "E2E Puppeter Testing",
-            background: "https://donihernandez.s3.amazonaws.com/images/projects/code.jpg",
+            background: Code,
             url: "https://github.com/donihernandez/e2e-puppeter-testing",
             description: "Sample testing project.",
             technologies: ['Puppeteer', 'Mocha', 'Chai']
@@ -75,7 +86,7 @@ export default function Home() {
         },
         {
             name: "Profile Card Component",
-            background: "https://donihernandez.s3.amazonaws.com/images/projects/card_profile.jpg",
+            background: Card_Profile,
             url: "https://doni-profile-card-component.netlify.app/",
             description: "FrontendMentor Challenge. Profile Card Component using HTML and CSS.",
             technologies: ['HTML', 'CSS']
@@ -83,7 +94,7 @@ export default function Home() {
         },
         {
             name: "3 Column Preview Card",
-            background: "https://donihernandez.s3.amazonaws.com/images/projects/card_columns.jpg",
+            background: Card_Columns,
             url: "https://card-components.netlify.app/",
             description: "FrontendMentor Challenge. 3 Column Preview Card Component using HTML and CSS.",
             technologies: ['HTML', 'CSS']
@@ -153,8 +164,7 @@ export default function Home() {
                 </div>
                 <div className="md:w-1/2 mt-16 md:flex justify-center items-center hidden">
                     <div>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://donihernandez.s3.amazonaws.com/images/avatar.jpg" className="rounded-full" width={500} height={500} alt="Doni Hernández"/>
+                        <Image src={Avatar} className="rounded-full" width={500} height={500} alt="Doni Hernández"/>
                     </div>
                 </div>
             </section>
