@@ -1,7 +1,7 @@
-const sgMail = require('@sendgrid/mail')
-import { NextApiRequest, NextApiResponse } from 'next';
+const nodemailer = require("nodemailer");
+require('dotenv').config()
 
-sgMail.setApiKey(process.env.EMAIL_API_KEY);
+import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { email, subject, message, name } = req.body
@@ -13,8 +13,18 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         text: message,
     };
 
+    let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASSWORD,
+        },
+    });
+
     try {
-        await sgMail.send(msg);
+        await transporter.send(msg);
         res.json({ message: `Email has been sent` })
     } catch (error) {
         res.status(500).json({ error: 'Error sending email' })
