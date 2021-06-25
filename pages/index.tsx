@@ -29,9 +29,9 @@ export default function Home() {
 
     const [emailData, setEmailData] = useState({
         name: '',
-        email: '',
+        from: '',
         subject: '',
-        message: '',
+        text: '',
     });
 
     const personalProjects: ICard[] = [
@@ -287,13 +287,13 @@ export default function Home() {
                     <input className="border border-gray-300 rounded-lg p-4 md:w-1/4 w-full" name="name" type="text" value={emailData.name} onChange={(e) => {
                         updateField(e);
                     }} placeholder="your name is..." />
-                    <input className="border border-gray-300 rounded-lg p-4 md:w-1/4 w-full" type="email" name="email" value={emailData.email}  onChange={(e) => {
+                    <input className="border border-gray-300 rounded-lg p-4 md:w-1/4 w-full" type="email" name="email" value={emailData.from}  onChange={(e) => {
                         updateField(e);
                     }} placeholder="your email is..." />
                     <input className="border border-gray-300 rounded-lg p-4 md:w-1/4 w-full" type="text" name="subject" value={emailData.subject}  onChange={(e) => {
                         updateField(e);
                     }} placeholder="subject..." />
-                    <textarea className="border border-gray-300 rounded-lg p-4 md:w-1/4 w-full" name="message" value={emailData.message}  onChange={(e) => {
+                    <textarea className="border border-gray-300 rounded-lg p-4 md:w-1/4 w-full" name="message" value={emailData.text}  onChange={(e) => {
                         updateField(e);
                     }} placeholder="message"/>
                     <input className="md:w-1/4 w-full bg-yellow-500 font-Montserrat-Bold text-white p-2 rounded-md hover:bg-white border-white hover:border-yellow-400 hover:text-gray-900 border transition-all duration-150 delay-150" type="submit" value="send" />
