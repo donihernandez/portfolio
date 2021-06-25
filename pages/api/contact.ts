@@ -1,33 +1,65 @@
+import {NextApiRequest, NextApiResponse} from 'next';
+import IEmail from "../../interfaces/IEmail";
+
+require("dotenv").config();
 const nodemailer = require("nodemailer");
-require('dotenv').config()
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
 
-import { NextApiRequest, NextApiResponse } from 'next';
-
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { email, subject, message, name } = req.body
+
     const msg = {
-        to: 'contact@donihernadez.com',
+        to: "contact@donihernandez.com",
         from: email,
         subject,
         name,
         text: message,
     };
 
-    let transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 465,
-        secure: true,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASSWORD,
-        },
-    });
+    const createTransporter = async () => {
+        const oauth2Client = new OAuth2(
+            process.env.CLIENT_ID,
+            process.env.CLIENT_SECRET,
+            "https://developers.google.com/oauthplayground"
+        );
+
+        oauth2Client.setCredentials({
+            refresh_token: process.env.REFRESH_TOKEN
+        });
+
+        const accessToken = await new Promise((resolve, reject) => {
+            oauth2Client.getAccessToken((err: any, token: string) => {
+                if (err) {
+                    reject("Failed to create access token :(");
+                }
+                resolve(token);
+            });
+        });
+
+        return nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                type: "OAuth2",
+                user: process.env.EMAIL,
+                accessToken,
+                clientId: process.env.CLIENT_ID,
+                clientSecret: process.env.CLIENT_SECRET,
+                refreshToken: process.env.REFRESH_TOKEN
+            }
+        });
+    };
+
+    const sendEmail = async (emailOptions: IEmail) => {
+        let emailTransporter = await createTransporter();
+        await emailTransporter.sendMail(emailOptions);
+    };
 
     try {
-        await transporter.send(msg);
-        res.json({ message: `Email has been sent` })
+        await sendEmail(msg);
+        res.json({ message: `Email has been sent` });
     } catch (error) {
-        res.status(500).json({ error: 'Error sending email' })
+        res.status(500).json({ error: 'Error sending email' });
     }
 }
 
