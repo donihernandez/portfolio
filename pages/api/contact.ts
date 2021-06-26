@@ -18,36 +18,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     };
 
     const createTransporter = async () => {
-        const oauth2Client = new OAuth2(
-            process.env.CLIENT_ID,
-            process.env.CLIENT_SECRET,
-            "https://developers.google.com/oauthplayground"
-        );
-
-        oauth2Client.setCredentials({
-            refresh_token: process.env.REFRESH_TOKEN
-        });
-
-        const accessToken = await new Promise((resolve, reject) => {
-            oauth2Client.getAccessToken((err: any, token: string) => {
-                if (err) {
-                    reject("Failed to create access token :(");
-                }
-                resolve(token);
-            });
-        });
-
-        return nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                type: "OAuth2",
-                user: process.env.EMAIL,
-                accessToken,
-                clientId: process.env.CLIENT_ID,
-                clientSecret: process.env.CLIENT_SECRET,
-                refreshToken: process.env.REFRESH_TOKEN
-            }
-        });
+         return  nodemailer.createTransport({
+             host: "smtp.mailtrap.io",
+             port: 2525,
+             auth: {
+                 user: "93176587571394",
+                 pass: "c54580b3c0ba21"
+             }
+         });
     };
 
     const sendEmail = async (emailOptions: IEmail) => {
@@ -59,7 +37,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         await sendEmail(msg);
         res.json({ message: `Email has been sent` });
     } catch (error) {
-        res.status(500).json({ error: 'Error sending email' });
+        res.status(500).json({ error });
     }
 }
 
