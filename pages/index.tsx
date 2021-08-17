@@ -24,6 +24,7 @@ import Card_Profile from '../public/images/card_profile.jpg';
 import RentURide from '../public/images/RentURide.png';
 import Doni_Spot from '../public/images/Doni Spot.png';
 import Youtube from '../public/images/Youtube Channel.png';
+import Fresh from '../public/images/Fresh News.png';
 
 export default function Home() {
 
@@ -46,6 +47,13 @@ export default function Home() {
             background: Doni_Spot,
             url: "https://donispot.com",
             description: "Online courses marketplace in Spanish!"
+        },
+        {
+            name: "Fresh News",
+            background: Fresh,
+            url: "https://fresh-news.vercel.app/",
+            description: "Fresh News | The breaking news just for you!",
+            technologies: ['Vuejs', 'Nuxtjs', 'Vuetify']
         },
     ];
 
