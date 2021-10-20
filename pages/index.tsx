@@ -24,7 +24,7 @@ import Card_Profile from '../public/images/card_profile.jpg';
 import RentURide from '../public/images/RentURide.png';
 import Doni_Spot from '../public/images/Doni Spot.png';
 import Youtube from '../public/images/Youtube Channel.png';
-import Fresh from '../public/images/Fresh News.png';
+import Fresh from '../public/images/Fresh_News.png';
 
 export default function Home() {
 
@@ -52,9 +52,8 @@ export default function Home() {
             name: "Fresh News",
             background: Fresh,
             url: "https://fresh-news.vercel.app/",
-            description: "Fresh News | The breaking news just for you!",
-            technologies: ['Vuejs', 'Nuxtjs', 'Vuetify']
-        },
+            description: "Get the freshest news from America. Fresh News will keep you posted 24 hours a day.",
+        }
     ];
 
     const sampleProjects: ICard[] = [
@@ -66,25 +65,11 @@ export default function Home() {
             technologies: ['React', 'Tailwindcss', 'Firebase']
         },
         {
-            name: "Stormcell E-commerce",
-            background: Code,
-            url: "https://github.com/donihernandez/stormcell",
-            description: "Sample project in progress. The ultimate goal is to make an E-commerce.",
-            technologies: ['PHP', 'Laravel', 'Vuejs', 'Jetstream']
-        },
-        {
             name: "Old Doni Spot Web",
             background: Old_Doni_Spot,
             url: "https://donispot.netlify.app/",
             description: "Is not currently functional. But was the previous version of my personal website.",
             technologies: ['Nuxt', 'Vuetify', 'Firebase']
-        },
-        {
-            name: "Todo App Api",
-            background: Code,
-            url: "https://github.com/donihernandez/todo-app-api",
-            description: "Sample project in progress. The ultimate goal is to make a Trello clone.",
-            technologies: ['PHP', 'Laravel']
         },
         {
             name: "E2E Puppeter Testing",
