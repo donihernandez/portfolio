@@ -2,7 +2,7 @@
 import Head from 'next/head';
 
 import { FC } from 'react';
-import { Navigation } from '../components/Navigation';
+import { Header } from '../components/Header';
 
 const Home: FC = () => {
     return (
@@ -18,7 +18,7 @@ const Home: FC = () => {
             </Head>
 
             <main>
-                <Navigation />
+                <Header />
             </main>
 
             <footer className="bg-gray-800 flex md:flex-row flex-col justify-center items-center text-white pt-6 pb-6">
