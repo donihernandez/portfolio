@@ -36,7 +36,7 @@ const Logo: FC = () => {
     return (
         <div>
             <h4 className="font-bold text-4xl font-Nicollast">
-                <span className="text-yellow-600">DD</span>H
+                <span className="text-yellow-400">DD</span>H
             </h4>
         </div>
     );

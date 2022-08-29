@@ -65,7 +65,7 @@ const Projects: FC<IProjectsProps> = ({ jumpTo }) => {
             id="projects"
         >
             <h2 className="text-7xl md:text-9xl font-bold font-Nicollast mb-20">
-                My <span className="text-yellow-600">Projects</span>
+                My <span className="text-yellow-400">Projects</span>
             </h2>
 
             <section

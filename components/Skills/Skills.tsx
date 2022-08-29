@@ -48,18 +48,18 @@ const Skills: FC = () => {
                     text-8xl font-bold"
                     >
                         My
-                        <span className="ml-5 text-yellow-600">Skills</span>
+                        <span className="ml-5 text-yellow-400">Skills</span>
                     </h2>
                 </div>
                 <div className="space-y-4">
-                    <p className="font-Montserrat-Light text-lg">
+                    <p className="font-Montserrat text-lg">
                         My career as a{' '}
-                        <span className="font-Montserrat-Bold">
+                        <span className="font-Montserrat font-bold">
                             software engineer
                         </span>{' '}
                         began almost four years ago, and I have worked remotely
                         for agencies and startups such as{' '}
-                        <span className="font-Montserrat-Bold">
+                        <span className="font-Montserrat font-bold">
                             YOKE Global Inc.
                         </span>{' '}
                         It has been my goal to help people learn how to code

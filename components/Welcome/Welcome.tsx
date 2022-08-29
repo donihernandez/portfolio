@@ -21,20 +21,20 @@ const Welcome: FC<IWelcome> = ({ jumpTo }) => {
                     className="font-Nicollast 
                 font-black text-8xl md:text-7xl lg:text-9xl"
                 >
-                    Hi, I´m <span className="text-yellow-600">Doni!</span>
+                    Hi, I´m <span className="text-yellow-400">Doni!</span>
                 </h1>
-                <p className="font-Montserrat-Light py-5 mb-10 text-2xl">
+                <p className="font-Montserrat py-5 mb-10 text-2xl">
                     {/* eslint-disable-next-line react/no-unescaped-entities */}
                     I'm a{' '}
-                    <span className="font-Montserrat-Bold text-yellow-600">
+                    <span className="font-Montserrat font-bold text-yellow-400">
                         software engineer
                     </span>{' '}
                     with over 4 years of experience creating{' '}
-                    <span className="font-Montserrat-Bold text-yellow-600">
+                    <span className="font-Montserrat font-bold text-yellow-400">
                         awesome websites.{' '}
                     </span>
                     If you&apos;re looking for a{' '}
-                    <span className="font-Montserrat-Bold text-yellow-600">
+                    <span className="font-Montserrat font-bold text-yellow-400">
                         web developer
                     </span>{' '}
                     who knows how to work in a team, who is independent and
@@ -44,7 +44,7 @@ const Welcome: FC<IWelcome> = ({ jumpTo }) => {
                 <div className="flex">
                     <a
                         className="
-                    hover:bg-yellow-600 font-Montserrat-Bold
+                    hover:bg-yellow-600 font-Montserrat font-bold
                     text-white px-14 py-5 rounded-md
                     bg-gray-900  
                     transition-all duration-500 ease-in-out"
@@ -56,7 +56,7 @@ const Welcome: FC<IWelcome> = ({ jumpTo }) => {
                     <a
                         className="
                     ml-10
-                    bg-yellow-600 font-Montserrat-Bold
+                    bg-yellow-400 font-Montserrat font-bold
                     text-white px-14 py-5 rounded-md
                     hover:bg-gray-900  
                     transition-all duration-500 ease-in-out"

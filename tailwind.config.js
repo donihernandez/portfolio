@@ -9,9 +9,6 @@ module.exports = {
         extend: {},
         fontFamily: {
             Montserrat: ['Montserrat', 'sans serif'],
-            'Montserrat-Bold': ['Montserrat-Bold', 'sans serif'],
-            'Montserrat-Light': ['Montserrat-Light', 'sans serif'],
-            'Montserrat-Thin': ['Montserrat-Thin', 'sans serif'],
             Nicollast: ['Nicollast', 'sans serif'],
         },
     },
