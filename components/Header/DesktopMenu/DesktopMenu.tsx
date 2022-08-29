@@ -20,7 +20,7 @@ const DesktopMenu: FC<IDesktopMenuProps> = ({ jumpTo }) => {
                         {LINKS.map(({ link }, index) => {
                             return (
                                 <li
-                                    className="hover:text-yellow-500 
+                                    className="hover:text-yellow-600 
                                         transition-all 
                                         ease-in duration-150"
                                     key={index}

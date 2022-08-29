@@ -1,6 +1,6 @@
-import type { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useRef } from 'react';
-import { MenuAlt1Icon, XIcon } from '@heroicons/react/solid';
+import { MenuAlt1Icon } from '@heroicons/react/solid';
 import jump from 'jump.js';
 import { HeaderContainer, Logo } from './Header.components';
 import { DesktopMenu } from './DesktopMenu';
@@ -8,6 +8,7 @@ import { MobileMenu } from './MobileMenu';
 
 const Header: FC = () => {
     const navMenu = useRef<HTMLDivElement>(null);
+    const [offset, setOffSet] = useState<number>(0);
 
     const hideMenu = (target?: string) => {
         if (!navMenu.current) {
@@ -30,8 +31,18 @@ const Header: FC = () => {
         jump(`.${target}`);
     };
 
+    useEffect(() => {
+        window.addEventListener('scroll', onScroll);
+
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    const onScroll = () => {
+        setOffSet(window.scrollY);
+    };
+
     return (
-        <HeaderContainer>
+        <HeaderContainer offset={offset}>
             <Logo />
 
             <MenuAlt1Icon

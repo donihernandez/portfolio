@@ -1,10 +1,19 @@
 /* eslint-disable max-len */
-import Head from 'next/head';
-
 import { FC } from 'react';
+
+import Head from 'next/head';
+import { Projects } from '@/components/Projects';
+import { Skills } from '@/components/Skills/Skills';
+import { Welcome } from '@/components/Welcome';
 import { Header } from '../components/Header';
+import jump from 'jump.js';
+import { Contact } from '@/components/Contact';
 
 const Home: FC = () => {
+    const jumpTo = (target: string) => {
+        jump(`.${target}`);
+    };
+
     return (
         <div>
             <Head>
@@ -19,16 +28,33 @@ const Home: FC = () => {
 
             <main>
                 <Header />
+                <Welcome jumpTo={jumpTo} />
+                <Skills />
+                <Projects jumpTo={jumpTo} />
+                <Contact />
             </main>
 
-            <footer className="bg-gray-800 flex md:flex-row flex-col justify-center items-center text-white pt-6 pb-6">
-                <div className="md:w-1/2 flex justify-center items-center border-b pb-4 md:pb-0 md:border-r md:border-b-0 border-gray-400">
+            <footer
+                className="bg-gray-800
+             flex md:flex-row flex-col justify-center
+             items-center text-white pt-6 pb-6"
+            >
+                <div
+                    className="md:w-1/2 flex 
+                justify-center items-center
+                border-b pb-4 md:pb-0 md:border-r
+                md:border-b-0 border-gray-400"
+                >
                     <span>
-                        Doni Domínguez Hernández &copy;{' '}
+                        Adonai Domínguez Hernández &copy;{' '}
                         {new Date().getFullYear()}
                     </span>
                 </div>
-                <div className="md:w-1/2 mt-4 md:mt-0 flex justify-center items-center">
+                <div
+                    className="md:w-1/2 
+                mt-4 md:mt-0 flex justify-center
+                items-center"
+                >
                     <ul className="flex space-x-6 items-center">
                         <li>
                             <a
