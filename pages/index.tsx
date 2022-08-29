@@ -26,6 +26,18 @@ const Home: FC = () => {
                 />
                 <link href="/favicon.ico" rel="icon" />
 
+                <link href="https://fonts.googleapis.com" rel="preconnect" />
+                <link
+                    crossOrigin="anonymous"
+                    href="https://fonts.gstatic.com"
+                    rel="preconnect"
+                />
+                {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap"
+                    rel="stylesheet"
+                />
+
                 <Script
                     src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
                     strategy="afterInteractive"
