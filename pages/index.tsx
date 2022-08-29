@@ -17,42 +17,6 @@ const Home: FC = () => {
 
     return (
         <div>
-            <Head>
-                <title>Doni Dominguez Hernandez | Software Engineer</title>
-                <meta
-                    // eslint-disable-next-line max-len
-                    content="Hi, I´m Doni! I'm a software engineer specialized in both front-end and back-end. I'm a passionate about web development and I really love Javascript. I live in Cuba and I'm currently looking for work outside my country."
-                    name="description"
-                />
-                <link href="/favicon.ico" rel="icon" />
-
-                <link href="https://fonts.googleapis.com" rel="preconnect" />
-                <link
-                    crossOrigin="anonymous"
-                    href="https://fonts.gstatic.com"
-                    rel="preconnect"
-                />
-                {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap"
-                    rel="stylesheet"
-                />
-
-                <Script
-                    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
-                    strategy="afterInteractive"
-                />
-                <Script id="google-analytics" strategy="afterInteractive">
-                    {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', ${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID});
-        `}
-                </Script>
-            </Head>
-
             <main>
                 <Header />
                 <Welcome jumpTo={jumpTo} />

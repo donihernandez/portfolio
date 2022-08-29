@@ -43,7 +43,7 @@ const Contact: FC = () => {
             id="contact"
         >
             <h2 className="text-7xl md:text-9xl font-bold font-Nicollast mb-8">
-                Contact <span className="text-yellow-600">Me!</span>
+                Contact <span className="text-yellow-400">Me!</span>
             </h2>
             <form
                 className="flex flex-col 
@@ -80,10 +80,10 @@ const Contact: FC = () => {
                 />
                 <input
                     className="md:w-1/4 w-full 
-                    cursor-pointer bg-yellow-600
+                    cursor-pointer bg-yellow-400
                      font-Montserrat-Bold text-white p-2 
                      rounded-md hover:bg-white border-white
-                      hover:border-yellow-500 hover:text-gray-900
+                      hover:border-yellow-600 hover:text-gray-900
                        border transition-all duration-200 ease-in"
                     type="submit"
                     value="send"

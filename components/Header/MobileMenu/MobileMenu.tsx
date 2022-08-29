@@ -20,7 +20,7 @@ const MobileMenu = forwardRef<HTMLElement, IMobileMenuProps>(
             >
                 <XIcon
                     className="h-10 w-10 absolute 
-                    right-8 cursor-pointer hover:text-yellow-600 text-white"
+                    right-8 cursor-pointer hover:text-yellow-400 text-white"
                     onClick={() => hideMenu('')}
                 />
 
@@ -32,7 +32,7 @@ const MobileMenu = forwardRef<HTMLElement, IMobileMenuProps>(
                         {LINKS.map(({ link }, index) => {
                             return (
                                 <li
-                                    className="hover:text-yellow-600 
+                                    className="hover:text-yellow-400 
                                     text-white
                         transition-all ease-in duration-150"
                                     key={index}
