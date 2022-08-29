@@ -1,14 +1,13 @@
 /* eslint-disable max-len */
 import { FC } from 'react';
 
-import Head from 'next/head';
+import jump from 'jump.js';
+
 import { Projects } from '@/components/Projects';
 import { Skills } from '@/components/Skills/Skills';
 import { Welcome } from '@/components/Welcome';
 import { Header } from '../components/Header';
-import jump from 'jump.js';
 import { Contact } from '@/components/Contact';
-import Script from 'next/script';
 
 const Home: FC = () => {
     const jumpTo = (target: string) => {
